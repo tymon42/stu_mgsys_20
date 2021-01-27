@@ -24,10 +24,55 @@ int main()
 			printf("\t\t\t");
 		}
 	}
+	switch (i)
+		{
+		case 1:
+			system("cls");  //清屏
+			break;
+		case 2:
+			system("cls");  //清屏
+			break;
+		case 3:
+			system("cls");  //清屏
+			break;
+		case 4:
+			system("cls");  //清屏
+			printf("\n\n\n");
+			break;
+		case 5:
+			system("cls");  //清屏
+			printf("\n\n\n");
+			break;
+		case 6:
+			system("cls");  //清屏
+			printf("\n\n\n");
+			break;
+		case 7:
+			system("cls");  //清屏
+			printf("\n\n\n");
+			break;
+		case 8:
+			system("cls");  //清屏
+			printf("\n\n\n");
+			break;
+		case 9:
+			system("cls");  //清屏
+			printf("\n\n\n");
+			break;
+		case 0:
+			system("cls");  //清屏
+			// TODO: 返回上一级菜单
+			return 0;
+		default:
+			system("cls");  //清屏
+			printf("\n\n\n");
+			printf("\t\t\t******************************************************************************\n");
+			printf("\t\t\tInput error!\n");
+			printf("\t\t\t******************************************************************************\n");
+
+		}
 
 	return 0;
-
-
 }
 // 创建菜单
 int   Menu(void)
