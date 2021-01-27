@@ -6,6 +6,7 @@
 #define   COURSE_NUM 4  // 最多的考试科目数 
 #define   LEN sizeof(Node) // 数据结构的长度
 
+int Menu(void);  
 
 int main()
 {
@@ -75,7 +76,7 @@ int main()
 	return 0;
 }
 // 创建菜单
-int   Menu(void)
+int Menu(void)
 {
 	int i;
 	printf("\n\n");
