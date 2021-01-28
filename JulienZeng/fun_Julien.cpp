@@ -78,3 +78,12 @@ void Menu_DeleNodeByName()
     cout<<"5.将该学生的成绩4归零"<<endl;
     cout<<"0.取消操作并返回上一层"<<endl;
 }
+double coutAve(Data tempData)
+{
+    double sum = 0;
+    for(int i=0;i<4;i++)
+    {
+        sum += tempData.score[i];
+    }
+    return sum/4;
+}

@@ -92,6 +92,7 @@ void readStuInfoFromFile(Node *listHeadNode)
         }
         tempData = Col_changeToChar(tempData);
         tempData = Sex_changeToChar(tempData);
+        tempData.average = coutAve(tempData);
         insetNodeByHead(listHeadNode,tempData);
         memset(&tempData,0,sizeof(tempData));
     }

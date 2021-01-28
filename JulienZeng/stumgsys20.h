@@ -80,6 +80,7 @@ int Sex_changeToInt(char []);
 Data Col_changeToChar(Data);
 Data Sex_changeToChar(Data);
 void Menu_DeleNodeByName();
+double coutAve(Data);
 //增删改查
 void insetNode(Node*);
 void deleNodeByName(Node*);
