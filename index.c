@@ -1,13 +1,13 @@
-#include<stdio.h>
-#include<string.h>
-#include<math.h>
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
 #include <stdlib.h>
 #include "list_func.h"
 
-#define   COURSE_NUM 4  // 最多的考试科目数 
-#define   LEN sizeof(Node) // 数据结构的长度
+#define COURSE_NUM 4	 // 最多的考试科目数
+#define LEN sizeof(Node) // 数据结构的长度
 
-int Menu(void);  
+int Menu(void);
 
 int main()
 {
@@ -16,63 +16,62 @@ int main()
 	Node head;
 	// = (Node *)malloc(LEN);
 	printf("\t\t\t******************************************************************************\n");
-	printf("初始化中……"); 
+	printf("初始化中……");
 	printf("\t\t\t******************************************************************************\n");
 	// 读取学生信息文件
 	FILE *stu_file;
-	
+
 	while (1)
 	{
-		system("cls");  //清屏
+		system("cls"); //清屏
 		i = Menu();
 	}
 	switch (i)
-		{
-		case 1:
-			system("cls");  //清屏
-			break;
-		case 2:
-			system("cls");  //清屏
-			break;
-		case 3:
-			system("cls");  //清屏
-			break;
-		case 4:
-			system("cls");  //清屏
-			printf("\n\n\n");
-			break;
-		case 5:
-			system("cls");  //清屏
-			printf("\n\n\n");
-			break;
-		case 6:
-			system("cls");  //清屏
-			printf("\n\n\n");
-			break;
-		case 7:
-			system("cls");  //清屏
-			printf("\n\n\n");
-			break;
-		case 8:
-			system("cls");  //清屏
-			printf("\n\n\n");
-			break;
-		case 9:
-			system("cls");  //清屏
-			printf("\n\n\n");
-			break;
-		case 0:
-			system("cls");  //清屏
-			// TODO: 返回上一级菜单
-			return 0;
-		default:
-			system("cls");  //清屏
-			printf("\n\n\n");
-			printf("\t\t\t******************************************************************************\n");
-			printf("\t\t\tInput error!\n");
-			printf("\t\t\t******************************************************************************\n");
-
-		}
+	{
+	case 1:
+		system("cls"); //清屏
+		break;
+	case 2:
+		system("cls"); //清屏
+		break;
+	case 3:
+		system("cls"); //清屏
+		break;
+	case 4:
+		system("cls"); //清屏
+		printf("\n\n\n");
+		break;
+	case 5:
+		system("cls"); //清屏
+		printf("\n\n\n");
+		break;
+	case 6:
+		system("cls"); //清屏
+		printf("\n\n\n");
+		break;
+	case 7:
+		system("cls"); //清屏
+		printf("\n\n\n");
+		break;
+	case 8:
+		system("cls"); //清屏
+		printf("\n\n\n");
+		break;
+	case 9:
+		system("cls"); //清屏
+		printf("\n\n\n");
+		break;
+	case 0:
+		system("cls"); //清屏
+		// TODO: 返回上一级菜单
+		return 0;
+	default:
+		system("cls"); //清屏
+		printf("\n\n\n");
+		printf("\t\t\t******************************************************************************\n");
+		printf("\t\t\tInput error!\n");
+		printf("\t\t\t******************************************************************************\n");
+	}
 
 	return 0;
 }
@@ -102,5 +101,4 @@ int Menu(void)
 	printf("\t\t\t*****************输入选项:");
 	scanf("%d", &i);
 	return i;
-
 }
