@@ -2,6 +2,7 @@
 #include<string.h>
 #include<math.h>
 #include <stdlib.h>
+#include "list_func.h"
 
 #define   COURSE_NUM 4  // 最多的考试科目数 
 #define   LEN sizeof(Node) // 数据结构的长度
@@ -13,7 +14,8 @@ int main()
 	int n, m;
 	int i;
 	// TODO:定义头节点
-	// 	head = (STU *)malloc(LEN);
+	Node head;
+	// = (Node *)malloc(LEN);
 	while (1)
 	{
 		i = Menu();
