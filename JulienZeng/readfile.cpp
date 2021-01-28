@@ -4,9 +4,10 @@
 
 */
 //处理注释并读取数据长度
+#include "stumgsys20.h"
 int readFromFile(FILE *fp)
 {
-    char readinfo[64],*ps=readinfo;
+    char readinfo[128],*ps=readinfo;
     while(1)
     {
         fscanf(fp,"%s",readinfo);
@@ -21,10 +22,11 @@ int readFromFile(FILE *fp)
     return num;
 }
 //读取学院代码
-void readColFromFile()
+void readColFromFile(ColNode *colHeadNode)
 {
     cout<<"正在读取文件(1/3)"<<endl;
     FILE *fp;
+    Col tempData;
     //C_Code.txt为学院代码文件
     fp=fopen("C_Code.txt","r");
     if (fp == NULL)
@@ -34,18 +36,20 @@ void readColFromFile()
         exit(1);
     }
     collen = readFromFile(fp);
-    pcol = (Col *)malloc(collen*sizeof(Col));
     for(int i=0;i<collen;i++)
     {
-        fscanf(fp,"%d%s",&(pcol+i)->colnum,(pcol+i)->col);
+        fscanf(fp,"%d%s",&tempData.colnum,tempData.col);
+        insetColNodeByHead(colHeadNode,tempData);
+        memset(&tempData,0,sizeof(tempData));
     }
     fclose(fp);
 }
 //读取性别代码
-void readSexFromFile()
+void readSexFromFile(SexNode *sexHeadNode)
 {
     cout<<"正在读取文件(2/3)"<<endl;
     FILE *fp;
+    Sex tempData;
     //S_Code.txt为性别代码文件
     fp=fopen("S_Code.txt","r");
     if (fp == NULL)
@@ -55,10 +59,11 @@ void readSexFromFile()
         exit(1);
     }
     sexlen = readFromFile(fp);
-    psex = (Sex *)malloc(collen*sizeof(Sex));
     for(int i=0;i<sexlen;i++)
     {
-        fscanf(fp,"%d%s",&(psex+i)->sexnum,(psex+i)->sex);
+        fscanf(fp,"%d%s",&tempData.sexnum,tempData.sex);
+        insetSexNodeByHead(sexHeadNode,tempData);
+        memset(&tempData,0,sizeof(tempData));
     }
     fclose(fp);
 }
@@ -85,6 +90,8 @@ void readStuInfoFromFile(Node *listHeadNode)
         {
             fscanf(fp,"%d",&tempData.score[i]);
         }
+        tempData = Col_changeToChar(tempData);
+        tempData = Sex_changeToChar(tempData);
         insetNodeByHead(listHeadNode,tempData);
         memset(&tempData,0,sizeof(tempData));
     }
@@ -94,6 +101,12 @@ void readStuInfoFromFile(Node *listHeadNode)
 void saveInfoToFile(struct Node* listHeadNode)
 {
     FILE *fp = fopen("Stu_Info.txt","w");
+    if (fp == NULL)
+    {
+        fprintf(stdout,"w");
+        cout<<"更新数据失败。(1201)"<<endl;
+        exit(1);
+    }
     struct Node* pMove = listHeadNode->next;
     while (pMove)
     {
