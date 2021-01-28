@@ -128,3 +128,5 @@ dmypy.json
 # Pyre type checker
 .pyre/
 .vscode/c_cpp_properties.json
+test_file.c
+*.exe
