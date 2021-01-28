@@ -20,7 +20,15 @@ int main()
 	printf("\t\t\t******************************************************************************\n");
 	// 读取学生信息文件
 	FILE *stu_file;
-
+	if ((stu_file = fopen("Stu_Info(tab).txt", "i")) == NULL)
+	{
+		printf("File cannot be opened/n");
+		exit();
+	}
+	else
+		printf("File opened for reading/n");
+	// TODO: 读入链表
+	fclose(stu_file);
 	while (1)
 	{
 		system("cls"); //清屏
