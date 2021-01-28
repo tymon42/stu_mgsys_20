@@ -3,43 +3,8 @@
     1.定义结构体
     2.使用链表实现信息增删查(不包括人机交互)
 */
-#include <string.h>
-#include <stdlib.h>
-int collen;
-int sexlen;
-//存储学生信息的结构体
-typedef struct Data
-{
-    int id;
-    char name[64];
-    int colid;
-    int sexid;
-    char col[64];
-    char sex[4];
-    double score[4];
-    double average;
-}Data;
-Data *pstu;
-//链表节点结构体
-typedef struct Node 
-{
-    Data data;
-    Node *next;
-}Node;
-//文件读取学院代码结构体
-typedef struct Col
-{
-    int colnum;
-    char col[64];
-}Col;
-Col *pcol;
-//文件读取性别代码结构体
-typedef struct Sex
-{
-    int sexnum;
-    char sex[64];
-}Sex;
-Sex *psex;
+#include "stumgsys20.h"
+
 //创建链表头
 Node *CreateList ()
 {
@@ -96,4 +61,33 @@ void deleNode(Node *listHeadNode ,Node *dele)
     }
     p->next = q->next;
     return;
+}
+//创建节点
+ColNode *createColNode(Col data)
+{
+    ColNode *newNode = (ColNode *)malloc(sizeof(ColNode));
+    newNode -> col = data ;
+    newNode -> next = NULL ;
+    return newNode;
+}
+//头插法插入数据到链表
+void *insetColNodeByHead (ColNode *listheadNode,Col data)
+{
+    ColNode *nweNode = createColNode(data);
+    nweNode -> next = listheadNode -> next;
+    listheadNode->next = nweNode;
+}
+SexNode *createSexNode(Sex data)
+{
+    SexNode *newNode = (SexNode *)malloc(sizeof(SexNode));
+    newNode -> sex = data ;
+    newNode -> next = NULL ;
+    return newNode;
+}
+//头插法插入数据到链表
+void *insetSexNodeByHead (SexNode *listheadNode,Sex data)
+{
+    SexNode *nweNode = createSexNode(data);
+    nweNode -> next = listheadNode -> next;
+    listheadNode->next = nweNode;
 }
