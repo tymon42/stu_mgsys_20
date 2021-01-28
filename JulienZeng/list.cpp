@@ -1,25 +1,45 @@
 /*
 此源文件的功能为：
-使用链表实现信息增删查
-(不包括人机交互)
+    1.定义结构体
+    2.使用链表实现信息增删查(不包括人机交互)
 */
 #include <string.h>
 #include <stdlib.h>
-
+int collen;
+int sexlen;
+//存储学生信息的结构体
 typedef struct Data
 {
     int id;
     char name[64];
     int colid;
     int sexid;
-    float score[4];
+    char col[64];
+    char sex[4];
+    double score[4];
+    double average;
 }Data;
-
+Data *pstu;
+//链表节点结构体
 typedef struct Node 
 {
     Data data;
     Node *next;
 }Node;
+//文件读取学院代码结构体
+typedef struct Col
+{
+    int colnum;
+    char col[64];
+}Col;
+Col *pcol;
+//文件读取性别代码结构体
+typedef struct Sex
+{
+    int sexnum;
+    char sex[64];
+}Sex;
+Sex *psex;
 //创建链表头
 Node *CreateList ()
 {
@@ -45,7 +65,7 @@ void *insetNodeByHead (Node *listheadNode,Data data)
 }
 //查
 //使用name(char)查找节点
-Node *searchNodeById(Node *listHeadNode,char searchname[64])
+Node *searchNodeByName(Node *listHeadNode,char searchname[64])
 {
     Node *pMove = listHeadNode->next;
     if (pMove == NULL)
@@ -63,7 +83,7 @@ Node *searchNodeById(Node *listHeadNode,char searchname[64])
 }
 //删
 //使用name(char)删除节点
-void deleNodeById(Node *listHeadNode ,Node *dele)
+void deleNode(Node *listHeadNode ,Node *dele)
 {
     Node *p = listHeadNode->next;
     Node *q = p->next;
