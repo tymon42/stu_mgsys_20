@@ -58,7 +58,9 @@ SexNode *sexlist = NULL;
 #ifndef __STUMGSYS20_H__
 #define __STUMGSYS20_H__
 //链表
-Node *CreateList ();
+Node *CreateInfoList ();
+ColNode *CreateColList ();
+SexNode *CreateSexList ();
 Node *createNode(Data);
 void *insetNodeByHead (Node*,Data);
 Node *searchNodeByName(Node*,char []);
