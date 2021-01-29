@@ -71,7 +71,7 @@ void readSexFromFile(SexNode *sexHeadNode)
 void readStuInfoFromFile(Node *listHeadNode)
 {
     FILE *fp;
-    fp = fopen("Stu_Info.txt","r");
+    fp = fopen("Stu_Info.txt(tab)","r");
     if (fp == NULL)
     {
         fprintf(stdout,"w");
@@ -81,14 +81,14 @@ void readStuInfoFromFile(Node *listHeadNode)
     Data tempData;
     while(fp)
     {
-        fscanf(fp,"%d%s%d%d",
+        fscanf(fp,"%d\t%s\t%d\t%d",
         &tempData.id,
         tempData.name,
         &tempData.colid,
         &tempData.sexid);
         for(int i=0;i<4;i++)
         {
-            fscanf(fp,"%d",&tempData.score[i]);
+            fscanf(fp,"\t%d",&tempData.score[i]);
         }
         tempData = Col_changeToChar(tempData);
         tempData = Sex_changeToChar(tempData);
