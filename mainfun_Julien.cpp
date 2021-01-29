@@ -1,18 +1,18 @@
 /*
-æ­¤æºæ–‡ä»¶çš„åŠŸèƒ½ä¸ºï¼š
-å¯¹å­¦ç”Ÿä¿¡æ¯çš„å¢åˆ æ”¹æŸ¥
-(åŒ…å«äººæœºäº¤äº’)
+´ËÔ´ÎÄ¼şµÄ¹¦ÄÜÎª£º
+¶ÔÑ§ÉúĞÅÏ¢µÄÔöÉ¾¸Ä²é
+(°üº¬ÈË»ú½»»¥)
 */
 #include "stumgsys20.h"
-//å¢
+//Ôö
 void insetNode(Node *listHeadNode)
 {
     char colinput[64];
     char sexinput[4];
     Data newdata;
-    cout<<"ã€æ·»åŠ å­¦ç”ŸåŠå…¶æˆç»©ã€‘"<<endl;
-    cout<<"è¯·è¾“å…¥å­¦ç”Ÿä¿¡æ¯ï¼š(æ¯ä¸€é¡¹ä¿¡æ¯è¯·ç”¨ç©ºæ ¼åˆ†éš”)"<<endl;
-    cout<<"å­¦å· å§“å å­¦é™¢ æ€§åˆ« æˆç»©1 æˆç»©2 æˆç»©3 æˆç»©4"<<endl;
+    cout<<"¡¾Ìí¼ÓÑ§Éú¼°Æä³É¼¨¡¿"<<endl;
+    cout<<"ÇëÊäÈëÑ§ÉúĞÅÏ¢£º(Ã¿Ò»ÏîĞÅÏ¢ÇëÓÃ¿Õ¸ñ·Ö¸ô)"<<endl;
+    cout<<"Ñ§ºÅ ĞÕÃû Ñ§Ôº ĞÔ±ğ ³É¼¨1 ³É¼¨2 ³É¼¨3 ³É¼¨4"<<endl;
     scanf("%d%s%s%s",&newdata.id,
     newdata.name,colinput,sexinput);
     for(int i=0;i<4;i++)
@@ -22,23 +22,23 @@ void insetNode(Node *listHeadNode)
     newdata.colid = Col_changeToInt(colinput);
     newdata.sexid = Sex_changeToInt(sexinput);
     insetNodeByHead(listHeadNode,newdata);
-    cout<<"å¢åŠ å­¦ç”Ÿä¿¡æ¯æˆåŠŸï¼"<<endl;
-    //å­˜å…¥æ–‡ä»¶
+    cout<<"Ôö¼ÓÑ§ÉúĞÅÏ¢³É¹¦£¡"<<endl;
+    //´æÈëÎÄ¼ş
     saveInfoToFile(listHeadNode);
 }
-//åˆ 
-//é€šè¿‡å§“å(char)åˆ é™¤ä¿¡æ¯
+//É¾
+//Í¨¹ıĞÕÃû(char)É¾³ıĞÅÏ¢
 void deleNodeByName(Node *listHeadNode)
 {
     char delename[64];
     Node *deleStu;
-    cout<<"ã€åˆ é™¤å­¦ç”Ÿæˆç»©ã€‘"<<endl;
-    cout<<"è¯·è¾“å…¥éœ€è¦åˆ é™¤çš„å­¦ç”Ÿçš„å§“åï¼š";
+    cout<<"¡¾É¾³ıÑ§Éú³É¼¨¡¿"<<endl;
+    cout<<"ÇëÊäÈëĞèÒªÉ¾³ıµÄÑ§ÉúµÄĞÕÃû£º";
     scanf("%s",delename);
     deleStu = searchNodeByName(listHeadNode,delename);
     if( deleNode == NULL )
     {
-        cout<<"Error:æœªæ‰¾åˆ°ç›¸å…³å­¦ç”Ÿçš„ä¿¡æ¯"<<endl;
+        cout<<"Error:Î´ÕÒµ½Ïà¹ØÑ§ÉúµÄĞÅÏ¢"<<endl;
     }
     else
     {
@@ -57,7 +57,7 @@ void deleNodeByName(Node *listHeadNode)
         case 3:
         case 4:
         case 5:
-            cout<<"è¯·è¾“å…¥è¯¥å­¦ç”Ÿæˆç»©"<<chose-1<<"çš„æ–°æˆç»©"<<endl;
+            cout<<"ÇëÊäÈë¸ÃÑ§Éú³É¼¨"<<chose-1<<"µÄĞÂ³É¼¨"<<endl;
             scanf("%d",deleStu->data.score[chose-2]);
             saveInfoToFile(listHeadNode);
             break;
@@ -65,61 +65,61 @@ void deleNodeByName(Node *listHeadNode)
         case 0:
             break;
         default:
-            cout<<"é€‰æ‹©é”™è¯¯ï¼Œå·²å–æ¶ˆæœ¬æ¬¡æ“ä½œã€‚"<<endl;
+            cout<<"Ñ¡Ôñ´íÎó£¬ÒÑÈ¡Ïû±¾´Î²Ù×÷¡£"<<endl;
             break;
         }
     }
 }
-//æ”¹
+//¸Ä
 void changeNodeByName(Node *listHeadNode)
 {
-    cout<<"ã€ä¿®æ”¹å­¦ç”Ÿæˆç»©ã€‘"<<endl;
+    cout<<"¡¾ĞŞ¸ÄÑ§Éú³É¼¨¡¿"<<endl;
     char searchname[64];
-    cout<<"è¯·è¾“å…¥å­¦ç”Ÿçš„å§“åï¼š";
+    cout<<"ÇëÊäÈëÑ§ÉúµÄĞÕÃû£º";
     scanf("%s",searchname);
     Node *searchNode;
     searchNode = searchNodeByName(listHeadNode,searchname);
     if( searchNode == NULL )
     {
-        cout<<"Error:æœªæ‰¾åˆ°ç›¸å…³å­¦ç”Ÿçš„ä¿¡æ¯"<<endl;
+        cout<<"Error:Î´ÕÒµ½Ïà¹ØÑ§ÉúµÄĞÅÏ¢"<<endl;
     }
     else
     {
         char chose;
         printNode(searchNode);
-        cout<<"ç¡®è®¤ä¿®æ”¹è¯¥å­¦ç”Ÿæˆç»©ï¼Ÿ(Y/N)"<<endl;
+        cout<<"È·ÈÏĞŞ¸Ä¸ÃÑ§Éú³É¼¨£¿(Y/N)"<<endl;
         scanf("%c",&chose);
         switch (chose)
         {
         case 'Y':
         case 'y':
-            cout<<"è¯·è¾“å…¥è¯¥å­¦ç”Ÿçš„å››æ¬¡æˆç»©"<<endl;
+            cout<<"ÇëÊäÈë¸ÃÑ§ÉúµÄËÄ´Î³É¼¨"<<endl;
             for(int i=0;i<4;i++)
             {
                 scanf("%d",searchNode->data.score[i]);
             }
-            cout<<"æˆç»©ä¿®æ”¹æˆåŠŸ!"<<endl;
+            cout<<"³É¼¨ĞŞ¸Ä³É¹¦!"<<endl;
             saveInfoToFile(listHeadNode);
             break;
         
         case 'N':
         case 'n':
-            cout<<"æ“ä½œå–æ¶ˆ"<<endl;
+            cout<<"²Ù×÷È¡Ïû"<<endl;
             break;
 
         default:
-            cout<<"é”®å…¥é”™è¯¯ï¼Œå·²å–æ¶ˆè¯¥æ¬¡æ“ä½œ"<<endl;
+            cout<<"¼üÈë´íÎó£¬ÒÑÈ¡Ïû¸Ã´Î²Ù×÷"<<endl;
             break;
         }
     }
 }
-//æŸ¥
+//²é
 void searchByName(Node *listHeadNode)
 {
-    cout<<"ã€æŸ¥è¯¢å­¦ç”Ÿæˆç»©ã€‘"<<endl;
+    cout<<"¡¾²éÑ¯Ñ§Éú³É¼¨¡¿"<<endl;
     char searchname[64];
-    cout<<"è¯·è¾“å…¥éœ€è¦æŸ¥è¯¢çš„å­¦ç”Ÿå§“åï¼š"<<endl;
+    cout<<"ÇëÊäÈëĞèÒª²éÑ¯µÄÑ§ÉúĞÕÃû£º"<<endl;
     scanf("%s",searchname);
-    cout<<"è¯¥åå­¦ç”Ÿä¿¡æ¯å¦‚ä¸‹ï¼š"<<endl;
+    cout<<"¸ÃÃûÑ§ÉúĞÅÏ¢ÈçÏÂ£º"<<endl;
     printNode(searchNodeByName(listHeadNode,searchname));
 }

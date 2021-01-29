@@ -1,9 +1,9 @@
 /*
-æœ¬å‡½æ•°å®ç°çš„åŠŸèƒ½ï¼š
-è¯»å–æ–‡ä»¶åˆ°é“¾è¡¨
+±¾º¯ÊıÊµÏÖµÄ¹¦ÄÜ£º
+¶ÁÈ¡ÎÄ¼şµ½Á´±í
 
 */
-//å¤„ç†æ³¨é‡Šå¹¶è¯»å–æ•°æ®é•¿åº¦
+//´¦Àí×¢ÊÍ²¢¶ÁÈ¡Êı¾İ³¤¶È
 #include "stumgsys20.h"
 int readFromFile(FILE *fp)
 {
@@ -21,18 +21,18 @@ int readFromFile(FILE *fp)
     }
     return num;
 }
-//è¯»å–å­¦é™¢ä»£ç 
+//¶ÁÈ¡Ñ§Ôº´úÂë
 void readColFromFile(ColNode *colHeadNode)
 {
-    cout<<"æ­£åœ¨è¯»å–æ–‡ä»¶(1/3)"<<endl;
+    cout<<"ÕıÔÚ¶ÁÈ¡ÎÄ¼ş(1/3)"<<endl;
     FILE *fp;
     Col tempData;
-    //C_Code.txtä¸ºå­¦é™¢ä»£ç æ–‡ä»¶
+    //C_Code.txtÎªÑ§Ôº´úÂëÎÄ¼ş
     fp=fopen("C_Code.txt","r");
     if (fp == NULL)
     {
         fprintf(stdout,"file(r)");
-        cout<<"è¯»å–æ–‡ä»¶å¤±è´¥ã€‚(1101)"<<endl;
+        cout<<"¶ÁÈ¡ÎÄ¼şÊ§°Ü¡£(1101)"<<endl;
         exit(1);
     }
     collen = readFromFile(fp);
@@ -44,18 +44,18 @@ void readColFromFile(ColNode *colHeadNode)
     }
     fclose(fp);
 }
-//è¯»å–æ€§åˆ«ä»£ç 
+//¶ÁÈ¡ĞÔ±ğ´úÂë
 void readSexFromFile(SexNode *sexHeadNode)
 {
-    cout<<"æ­£åœ¨è¯»å–æ–‡ä»¶(2/3)"<<endl;
+    cout<<"ÕıÔÚ¶ÁÈ¡ÎÄ¼ş(2/3)"<<endl;
     FILE *fp;
     Sex tempData;
-    //S_Code.txtä¸ºæ€§åˆ«ä»£ç æ–‡ä»¶
+    //S_Code.txtÎªĞÔ±ğ´úÂëÎÄ¼ş
     fp=fopen("S_Code.txt","r");
     if (fp == NULL)
     {
         fprintf(stdout,"file(r)");
-        cout<<"è¯»å–æ–‡ä»¶å¤±è´¥ã€‚(1102)"<<endl;
+        cout<<"¶ÁÈ¡ÎÄ¼şÊ§°Ü¡£(1102)"<<endl;
         exit(1);
     }
     sexlen = readFromFile(fp);
@@ -67,7 +67,7 @@ void readSexFromFile(SexNode *sexHeadNode)
     }
     fclose(fp);
 }
-//ä»æ–‡ä»¶ä¸­è¯»å–å­¦ç”Ÿä¿¡æ¯
+//´ÓÎÄ¼şÖĞ¶ÁÈ¡Ñ§ÉúĞÅÏ¢
 void readStuInfoFromFile(Node *listHeadNode)
 {
     FILE *fp;
@@ -75,7 +75,7 @@ void readStuInfoFromFile(Node *listHeadNode)
     if (fp == NULL)
     {
         fprintf(stdout,"w");
-        cout<<"è¯»å–æ–‡ä»¶å¤±è´¥ã€‚(1103)"<<endl;
+        cout<<"¶ÁÈ¡ÎÄ¼şÊ§°Ü¡£(1103)"<<endl;
         exit(1);
     }
     Data tempData;
@@ -98,14 +98,14 @@ void readStuInfoFromFile(Node *listHeadNode)
     }
     fclose(fp);
 }
-//å°†ä¿¡æ¯å†™å…¥æ–‡ä»¶
+//½«ĞÅÏ¢Ğ´ÈëÎÄ¼ş
 void saveInfoToFile(struct Node* listHeadNode)
 {
     FILE *fp = fopen("Stu_Info.txt","w");
     if (fp == NULL)
     {
         fprintf(stdout,"w");
-        cout<<"æ›´æ–°æ•°æ®å¤±è´¥ã€‚(1201)"<<endl;
+        cout<<"¸üĞÂÊı¾İÊ§°Ü¡£(1201)"<<endl;
         exit(1);
     }
     struct Node* pMove = listHeadNode->next;

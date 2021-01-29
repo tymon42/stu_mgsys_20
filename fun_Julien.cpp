@@ -1,9 +1,9 @@
 #include "stumgsys20.h"
-//打印节点
-//！！！！格式需要更改！！！！
+//��ӡ�ڵ�
+//����������ʽ��Ҫ���ģ�������
 void printNode(Node *curNode)
 {
-    cout<<"\t学号\t姓名\t学院\t性别\t成绩1\t成绩2\t成绩3\t成绩4"<<endl;
+    cout<<"\tѧ��\t����\tѧԺ\t�Ա�\t�ɼ�1\t�ɼ�2\t�ɼ�3\t�ɼ�4"<<endl;
     printf("%d %s %s %s ",curNode->data.id,
     curNode->data.name,
     curNode->data.col,
@@ -13,7 +13,7 @@ void printNode(Node *curNode)
         printf("%lf ",curNode->data.score[i]);
     }
 }
-//将学院名字转化为代码
+//��ѧԺ����ת��Ϊ����
 int Col_changeToInt(char col[64])
 {
     ColNode *pMove = colist->next;
@@ -26,7 +26,7 @@ int Col_changeToInt(char col[64])
         pMove = pMove->next;
     }
 }
-//将性别转化为代码
+//���Ա�ת��Ϊ����
 int Sex_changeToInt(char sex[4])
 {
     SexNode *pMove = sexlist->next;
@@ -39,7 +39,7 @@ int Sex_changeToInt(char sex[4])
         pMove = pMove->next;
     }
 }
-//将学院代码转化为名字
+//��ѧԺ����ת��Ϊ����
 Data Col_changeToChar(Data tempData)
 {
     ColNode *pMove = colist->next;
@@ -53,7 +53,7 @@ Data Col_changeToChar(Data tempData)
         pMove = pMove->next;
     }
 }
-//将性别代码转化为名字
+//���Ա����ת��Ϊ����
 Data Sex_changeToChar(Data tempData)
 {
     SexNode *pMove = sexlist->next;
@@ -67,16 +67,16 @@ Data Sex_changeToChar(Data tempData)
         pMove = pMove->next;
     }
 }
-//菜单格式！！！
+//�˵���ʽ������
 void Menu_DeleNodeByName()
 {
-    cout<<"请确定您需要进行的操作："<<endl;
-    cout<<"1.删除该学生所有信息"<<endl;
-    cout<<"2.将该学生的成绩1归零"<<endl;
-    cout<<"3.将该学生的成绩2归零"<<endl;
-    cout<<"4.将该学生的成绩3归零"<<endl;
-    cout<<"5.将该学生的成绩4归零"<<endl;
-    cout<<"0.取消操作并返回上一层"<<endl;
+    cout<<"��ȷ������Ҫ���еĲ�����"<<endl;
+    cout<<"1.ɾ����ѧ��������Ϣ"<<endl;
+    cout<<"2.����ѧ���ĳɼ�1����"<<endl;
+    cout<<"3.����ѧ���ĳɼ�2����"<<endl;
+    cout<<"4.����ѧ���ĳɼ�3����"<<endl;
+    cout<<"5.����ѧ���ĳɼ�4����"<<endl;
+    cout<<"0.ȡ��������������һ��"<<endl;
 }
 double coutAve(Data tempData)
 {

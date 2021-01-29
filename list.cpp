@@ -1,32 +1,32 @@
 /*
-æ­¤æºæ–‡ä»¶çš„åŠŸèƒ½ä¸ºï¼š
-    1.å®šä¹‰ç»“æ„ä½“
-    2.ä½¿ç”¨é“¾è¡¨å®ç°ä¿¡æ¯å¢åˆ æŸ¥(ä¸åŒ…æ‹¬äººæœºäº¤äº’)
+´ËÔ´ÎÄ¼şµÄ¹¦ÄÜÎª£º
+    1.¶¨Òå½á¹¹Ìå
+    2.Ê¹ÓÃÁ´±íÊµÏÖĞÅÏ¢ÔöÉ¾²é(²»°üÀ¨ÈË»ú½»»¥)
 */
 #include "stumgsys20.h"
 
-//åˆ›å»ºInfoé“¾è¡¨å¤´
+//´´½¨InfoÁ´±íÍ·
 Node *CreateInfoList ()
 {
     Node *listHeadNode = (Node *)malloc(sizeof(Node));
     listHeadNode->next = NULL;
     return listHeadNode;
 }
-//åˆ›å»ºColé“¾è¡¨å¤´
+//´´½¨ColÁ´±íÍ·
 ColNode *CreateColList ()
 {
     ColNode *listHeadNode = (ColNode *)malloc(sizeof(ColNode));
     listHeadNode->next = NULL;
     return listHeadNode;
 }
-//åˆ›å»ºSexé“¾è¡¨å¤´
+//´´½¨SexÁ´±íÍ·
 SexNode *CreateSexList ()
 {
     SexNode *listHeadNode = (SexNode *)malloc(sizeof(SexNode));
     listHeadNode->next = NULL;
     return listHeadNode;
 }
-//åˆ›å»ºèŠ‚ç‚¹
+//´´½¨½Úµã
 Node *createNode(Data data)
 {
     Node *newNode = (Node *)malloc(sizeof(Node));
@@ -34,16 +34,16 @@ Node *createNode(Data data)
     newNode -> next = NULL ;
     return newNode;
 }
-//å¢
-//å¤´æ’æ³•æ’å…¥æ•°æ®åˆ°é“¾è¡¨
+//Ôö
+//Í·²å·¨²åÈëÊı¾İµ½Á´±í
 void *insetNodeByHead (Node *listheadNode,Data data)
 {
     Node *nweNode = createNode(data);
     nweNode -> next = listheadNode -> next;
     listheadNode->next = nweNode;
 }
-//æŸ¥
-//ä½¿ç”¨name(char)æŸ¥æ‰¾èŠ‚ç‚¹
+//²é
+//Ê¹ÓÃname(char)²éÕÒ½Úµã
 Node *searchNodeByName(Node *listHeadNode,char searchname[64])
 {
     Node *pMove = listHeadNode->next;
@@ -60,8 +60,8 @@ Node *searchNodeByName(Node *listHeadNode,char searchname[64])
         return pMove;
     }
 }
-//åˆ 
-//ä½¿ç”¨name(char)åˆ é™¤èŠ‚ç‚¹
+//É¾
+//Ê¹ÓÃname(char)É¾³ı½Úµã
 void deleNode(Node *listHeadNode ,Node *dele)
 {
     Node *p = listHeadNode->next;
@@ -76,7 +76,7 @@ void deleNode(Node *listHeadNode ,Node *dele)
     p->next = q->next;
     return;
 }
-//åˆ›å»ºèŠ‚ç‚¹
+//´´½¨½Úµã
 ColNode *createColNode(Col data)
 {
     ColNode *newNode = (ColNode *)malloc(sizeof(ColNode));
@@ -84,7 +84,7 @@ ColNode *createColNode(Col data)
     newNode -> next = NULL ;
     return newNode;
 }
-//å¤´æ’æ³•æ’å…¥æ•°æ®åˆ°é“¾è¡¨
+//Í·²å·¨²åÈëÊı¾İµ½Á´±í
 void *insetColNodeByHead (ColNode *listheadNode,Col data)
 {
     ColNode *nweNode = createColNode(data);
@@ -98,7 +98,7 @@ SexNode *createSexNode(Sex data)
     newNode -> next = NULL ;
     return newNode;
 }
-//å¤´æ’æ³•æ’å…¥æ•°æ®åˆ°é“¾è¡¨
+//Í·²å·¨²åÈëÊı¾İµ½Á´±í
 void *insetSexNodeByHead (SexNode *listheadNode,Sex data)
 {
     SexNode *nweNode = createSexNode(data);

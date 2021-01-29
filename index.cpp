@@ -4,21 +4,21 @@
 #include <stdlib.h>
 #include "list_func.h"
 
-#define COURSE_NUM 4	 // æœ€å¤šçš„è€ƒè¯•ç§‘ç›®æ•°
-#define LEN sizeof(Node) // æ•°æ®ç»“æ„çš„é•¿åº¦
+#define COURSE_NUM 4	 // ×î¶àµÄ¿¼ÊÔ¿ÆÄ¿Êı
+#define LEN sizeof(Node) // Êı¾İ½á¹¹µÄ³¤¶È
 
 int Menu(void);
 
 int main()
 {
 	int i;
-	// TODO:å®šä¹‰å¤´èŠ‚ç‚¹
+	// TODO:¶¨ÒåÍ·½Úµã
 	Node head;
 	// = (Node *)malloc(LEN);
 	printf("\t\t\t******************************************************************************\n");
-	printf("\t\t\t\t\t\tåˆå§‹åŒ–ä¸­â€¦â€¦\n");
+	printf("\t\t\t\t\t\t³õÊ¼»¯ÖĞ¡­¡­\n");
 	printf("\t\t\t******************************************************************************\n");
-	// è¯»å–å­¦ç”Ÿä¿¡æ¯æ–‡ä»¶
+	// ¶ÁÈ¡Ñ§ÉúĞÅÏ¢ÎÄ¼ş
 	FILE *stu_file;
 	if ((stu_file = fopen("Stu_Info(tab).txt", "r")) == NULL)
 	{
@@ -27,54 +27,54 @@ int main()
 	}
 	else
 		printf("File opened for reading/n");
-	// TODO: è¯»å…¥é“¾è¡¨
+	// TODO: ¶ÁÈëÁ´±í
 	fclose(stu_file);
 	while (1)
 	{
-		system("cls"); //æ¸…å±
+		system("cls"); //ÇåÆÁ
 		i = Menu();
 	}
 	switch (i)
 	{
 	case 1:
-		system("cls"); //æ¸…å±
+		system("cls"); //ÇåÆÁ
 		break;
 	case 2:
-		system("cls"); //æ¸…å±
+		system("cls"); //ÇåÆÁ
 		break;
 	case 3:
-		system("cls"); //æ¸…å±
+		system("cls"); //ÇåÆÁ
 		break;
 	case 4:
-		system("cls"); //æ¸…å±
+		system("cls"); //ÇåÆÁ
 		printf("\n\n\n");
 		break;
 	case 5:
-		system("cls"); //æ¸…å±
+		system("cls"); //ÇåÆÁ
 		printf("\n\n\n");
 		break;
 	case 6:
-		system("cls"); //æ¸…å±
+		system("cls"); //ÇåÆÁ
 		printf("\n\n\n");
 		break;
 	case 7:
-		system("cls"); //æ¸…å±
+		system("cls"); //ÇåÆÁ
 		printf("\n\n\n");
 		break;
 	case 8:
-		system("cls"); //æ¸…å±
+		system("cls"); //ÇåÆÁ
 		printf("\n\n\n");
 		break;
 	case 9:
-		system("cls"); //æ¸…å±
+		system("cls"); //ÇåÆÁ
 		printf("\n\n\n");
 		break;
 	case 0:
-		system("cls"); //æ¸…å±
-		// TODO: è¿”å›ä¸Šä¸€çº§èœå•
+		system("cls"); //ÇåÆÁ
+		// TODO: ·µ»ØÉÏÒ»¼¶²Ëµ¥
 		return 0;
 	default:
-		system("cls"); //æ¸…å±
+		system("cls"); //ÇåÆÁ
 		printf("\n\n\n");
 		printf("\t\t\t******************************************************************************\n");
 		printf("\t\t\tInput error!\n");
@@ -83,30 +83,30 @@ int main()
 
 	return 0;
 }
-// åˆ›å»ºèœå•
+// ´´½¨²Ëµ¥
 int Menu(void)
 {
 	int i;
 	printf("\n\n");
-	printf("\t\t\t                         å­¦ç”Ÿæˆç»©ç®¡ç†ç³»ç»Ÿ\n");
+	printf("\t\t\t                         Ñ§Éú³É¼¨¹ÜÀíÏµÍ³\n");
 	printf("\t\t\t******************************************************************************\n");
 	printf("\t\t\t*                Management for Students' scores                             *\n");
-	printf("\t\t\t*                1.  æŒ‰å§“åæ’åºï¼Œè¾“å‡º                                         *\n");
-	printf("\t\t\t*                2.  æŒ‰å¹³å‡æˆç»©æ’åºï¼Œè¾“å‡º								        *\n");
-	printf("\t\t\t*                3.  è¾“å‡ºç»™å®šå­¦é™¢å­¦ç”Ÿt                                        *\n");
-	printf("\t\t\t*                4.  æ·»åŠ å­¦ç”ŸåŠå…¶æˆç»©					                        *\n");
-	printf("\t\t\t*                5.  ä¿®æ”¹ç»™å®šå­¦ç”Ÿæˆç»©ä¿¡æ¯				                        *\n");
-	printf("\t\t\t*                6.  æŒ‰å§“åæŸ¥è¯¢å­¦ç”Ÿï¼Œè¾“å‡º				                        *\n");
-	printf("\t\t\t*                7.  åˆ é™¤å­¦ç”Ÿæˆç»©						                        *\n");
-	printf("\t\t\t*                8.  ä¿®æ”¹ç³»ç»Ÿå¯†ç 		                                        *\n");
-	printf("\t\t\t*                9.  è¾“å‡ºæŒ‚ç§‘å­¦ç”Ÿä¿¡æ¯å¹¶å¼ºè°ƒå…¶æŒ‚æ‰çš„ç§‘ç›®	                     *\n");
-	printf("\t\t\t*                0.  è¿”å›ä¸Šä¸€çº§èœå•										    *\n");
+	printf("\t\t\t*                1.  °´ĞÕÃûÅÅĞò£¬Êä³ö                                         *\n");
+	printf("\t\t\t*                2.  °´Æ½¾ù³É¼¨ÅÅĞò£¬Êä³ö								        *\n");
+	printf("\t\t\t*                3.  Êä³ö¸ø¶¨Ñ§ÔºÑ§Éút                                        *\n");
+	printf("\t\t\t*                4.  Ìí¼ÓÑ§Éú¼°Æä³É¼¨					                        *\n");
+	printf("\t\t\t*                5.  ĞŞ¸Ä¸ø¶¨Ñ§Éú³É¼¨ĞÅÏ¢				                        *\n");
+	printf("\t\t\t*                6.  °´ĞÕÃû²éÑ¯Ñ§Éú£¬Êä³ö				                        *\n");
+	printf("\t\t\t*                7.  É¾³ıÑ§Éú³É¼¨						                        *\n");
+	printf("\t\t\t*                8.  ĞŞ¸ÄÏµÍ³ÃÜÂë		                                        *\n");
+	printf("\t\t\t*                9.  Êä³ö¹Ò¿ÆÑ§ÉúĞÅÏ¢²¢Ç¿µ÷Æä¹ÒµôµÄ¿ÆÄ¿	                     *\n");
+	printf("\t\t\t*                0.  ·µ»ØÉÏÒ»¼¶²Ëµ¥										    *\n");
 	printf("\t\t\t******************************************************************************\n");
 	printf("\n");
 	printf("\n");
 	printf("\n");
 	printf("\n");
-	printf("\t\t\t*****************è¾“å…¥é€‰é¡¹:");
+	printf("\t\t\t*****************ÊäÈëÑ¡Ïî:");
 	scanf("%d", &i);
 	return i;
 }

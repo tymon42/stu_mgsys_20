@@ -5,7 +5,7 @@ int main()
 	// Node *list;
 	list = CreateInfoList();
 	printf("\t\t\t******************************************************************************\n");
-	// 璇诲彇瀛︾敓淇℃伅鏂囦欢
+	// 读取学生信息文件
 	// readStuInfoFromFile(list)
 }
 	

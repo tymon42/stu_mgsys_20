@@ -7,7 +7,7 @@ using namespace std;
 int collen;
 int sexlen;
 
-//å­˜å‚¨å­¦ç”Ÿä¿¡æ¯çš„ç»“æ„ä½“
+//´æ´¢Ñ§ÉúĞÅÏ¢µÄ½á¹¹Ìå
 typedef struct Data
 {
     int id;
@@ -20,44 +20,44 @@ typedef struct Data
     double average;
 }Data;
 Data *pstu;
-//é“¾è¡¨èŠ‚ç‚¹ç»“æ„ä½“
+//Á´±í½Úµã½á¹¹Ìå
 typedef struct Node 
 {
     Data data;
     Node *next;
 }Node;
-//å­¦é™¢ä»£ç ç»“æ„ä½“
+//Ñ§Ôº´úÂë½á¹¹Ìå
 typedef struct Col
 {
     int colnum;
     char col[64];
 }Col;
-//å­¦é™¢ä»£ç é“¾è¡¨èŠ‚ç‚¹
+//Ñ§Ôº´úÂëÁ´±í½Úµã
 typedef struct ColNode
 {
     Col col;
     ColNode *next;
 }ColNode;
-//æ–‡ä»¶è¯»å–æ€§åˆ«ä»£ç ç»“æ„ä½“
+//ÎÄ¼ş¶ÁÈ¡ĞÔ±ğ´úÂë½á¹¹Ìå
 typedef struct Sex
 {
     int sexnum;
     char sex[64];
 }Sex;
-//æ€§åˆ«ä»£ç ç»“æ„ä½“
+//ĞÔ±ğ´úÂë½á¹¹Ìå
 typedef struct SexNode
 {
     Sex sex;
     SexNode *next;
 }SexNode;
-//åˆ›å»ºé“¾è¡¨
+//´´½¨Á´±í
 Node *list = NULL;
 ColNode *colist = NULL;
 SexNode *sexlist = NULL;
 
 #ifndef __STUMGSYS20_H__
 #define __STUMGSYS20_H__
-//é“¾è¡¨
+//Á´±í
 Node *CreateInfoList ();
 ColNode *CreateColList ();
 SexNode *CreateSexList ();
@@ -69,21 +69,21 @@ ColNode *createColNode(Col);
 void *insetColNodeByHead (ColNode*,Col);
 SexNode *createSexNode(Sex);
 void *insetSexNodeByHead (SexNode*,Sex);
-//æ–‡ä»¶æ“ä½œ
+//ÎÄ¼ş²Ù×÷
 int readFromFile(FILE*);
 void readColFromFile(ColNode*);
 void readSexFromFile(SexNode*);
 void readStuInfoFromFile(Node*);
 void saveInfoToFile(Node*);
 void printNode(Node*);
-//å‰ç½®åŠŸèƒ½
+//Ç°ÖÃ¹¦ÄÜ
 int Col_changeToInt(char []);
 int Sex_changeToInt(char []);
 Data Col_changeToChar(Data);
 Data Sex_changeToChar(Data);
 void Menu_DeleNodeByName();
 double coutAve(Data);
-//å¢åˆ æ”¹æŸ¥
+//ÔöÉ¾¸Ä²é
 void insetNode(Node*);
 void deleNodeByName(Node*);
 void changeNodeByName(Node*);
