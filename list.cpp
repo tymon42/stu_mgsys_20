@@ -43,6 +43,7 @@ void *insetNodeByHead (Node *listheadNode,Data data)
 }
 //查
 //使用name(char)查找节点
+//如果警告不需要理
 Node *searchNodeByName(Node *listHeadNode,char searchname[64])
 {
     Node *pMove = listHeadNode->next;

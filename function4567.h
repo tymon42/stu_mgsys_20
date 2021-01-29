@@ -17,8 +17,8 @@ void changeNodeByName(Node*);
 void searchByName(Node*);
 //对文件进行操作
 int readFromFile(FILE*);
-int readColFromFile(ColNode*,int);
-int readSexFromFile(SexNode*,int);
+int readColFromFile(ColNode*);
+int readSexFromFile(SexNode*);
 void readStuInfoFromFile(Node*,ColNode*,SexNode*,int,int);
 void saveInfoToFile(Node*);
 
