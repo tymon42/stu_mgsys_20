@@ -2,7 +2,7 @@
 #include <string.h>
 #include <math.h>
 #include <stdlib.h>
-#include "list_func.h"
+#include "function4567.h"
 
 #define COURSE_NUM 4	 // 最多的考试科目数
 #define LEN sizeof(Node) // 数据结构的长度
@@ -15,20 +15,16 @@ int main()
 	// TODO:定义头节点
 	Node head;
 	// = (Node *)malloc(LEN);
-	printf("\t\t\t******************************************************************************\n");
+	printf("\t\t\t**************************************************************************\n");
 	printf("\t\t\t\t\t\t初始化中……\n");
-	printf("\t\t\t******************************************************************************\n");
-	// 读取学生信息文件
-	FILE *stu_file;
-	if ((stu_file = fopen("Stu_Info(tab).txt", "r")) == NULL)
-	{
-		printf("File cannot be opened/n");
-		exit(0);
-	}
-	else
-		printf("File opened for reading/n");
-	// TODO: 读入链表
-	fclose(stu_file);
+	printf("\t\t\t***************************************************************************\n");
+	Node *info_list;
+	ColNode *col_list;
+	SexNode *Sex_list;
+	info_list = CreateInfoList();
+	col_list = CreateColList();
+	Sex_list = CreateSexList();
+
 	while (1)
 	{
 		system("cls"); //清屏
