@@ -19,6 +19,7 @@ void printNode(Node *curNode)
     }
 }
 //将学院名字转化为代码
+//如果警告不需要理
 int Col_changeToInt(ColNode *colist,char col[64],int collen)
 {
     ColNode *pMove = colist->next;
@@ -32,6 +33,7 @@ int Col_changeToInt(ColNode *colist,char col[64],int collen)
     }
 }
 //将性别转化为代码
+//如果警告不需要理
 int Sex_changeToInt(SexNode *sexlist,char sex[4],int sexlen)
 {
     SexNode *pMove = sexlist->next;
@@ -45,6 +47,7 @@ int Sex_changeToInt(SexNode *sexlist,char sex[4],int sexlen)
     }
 }
 //将学院代码转化为名字
+//如果警告不需要理
 Data Col_changeToChar(ColNode *colist,Data tempData,int collen)
 {
     ColNode *pMove = colist->next;
@@ -53,12 +56,13 @@ Data Col_changeToChar(ColNode *colist,Data tempData,int collen)
         if(tempData.colid = pMove->col.colnum)
         {
             strcpy(tempData.col,pMove->col.col);
-            break;
+            return tempData;
         }
         pMove = pMove->next;
     }
 }
 //将性别代码转化为名字
+//如果警告不需要理
 Data Sex_changeToChar(SexNode *sexlist,Data tempData,int sexlen)
 {
     SexNode *pMove = sexlist->next;
@@ -67,7 +71,7 @@ Data Sex_changeToChar(SexNode *sexlist,Data tempData,int sexlen)
         if(tempData.sexid = pMove->sex.sexnum)
         {
             strcpy(tempData.sex,pMove->sex.sex);
-            break;
+            return tempData;
         }
         pMove = pMove->next;
     }
@@ -234,7 +238,8 @@ int readFromFile(FILE *fp)
 //读取学院代码
 int readColFromFile(ColNode *colHeadNode)
 {
-    cout<<"正在读取文件(1/3)"<<endl;
+    //此处的输出请在调用前进行
+    //cout<<"正在读取文件(1/3)"<<endl;
     FILE *fp;
     Col tempData;
     //C_Code.txt为学院代码文件
@@ -258,7 +263,8 @@ int readColFromFile(ColNode *colHeadNode)
 //读取性别代码
 int readSexFromFile(SexNode *sexHeadNode)
 {
-    cout<<"正在读取文件(2/3)"<<endl;
+    //此处的输出请在调用前进行
+    //cout<<"正在读取文件(2/3)"<<endl;
     FILE *fp;
     Sex tempData;
     //S_Code.txt为性别代码文件
@@ -282,6 +288,8 @@ int readSexFromFile(SexNode *sexHeadNode)
 //从文件中读取学生信息
 void readStuInfoFromFile(Node *listHeadNode,ColNode *colHeadNode,SexNode *sexHeadNode,int collen,int sexlen)
 {
+    //此处的输出请在调用前进行
+    //cout<<"正在读取文件(3/3)"<<endl;
     FILE *fp;
     fp = fopen("Stu_Info.txt(tab)","r");
     if (fp == NULL)
