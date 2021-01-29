@@ -3,7 +3,7 @@
     1.定义结构体
     2.使用链表实现信息增删查(不包括人机交互)
 */
-#include "stumgsys20.h"
+#include "list.h"
 
 //创建Info链表头
 Node *CreateInfoList ()
