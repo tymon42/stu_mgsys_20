@@ -12,7 +12,27 @@ int Menu(void);
 int main()
 {
 	int i;
-	// TODO:定义头节点
+	// 登录
+	FILE *fp; 
+	char strLine[20];								//读取缓冲区
+	char ps[20];
+	if((fp = fopen("ps.txt","r")) == NULL)		//判断文件是否存在及可读
+	{ 
+		printf("Open Falied!"); 
+		return -1; 
+	} 
+	while (!feof(fp))									//循环读取每一行，直到文件尾
+	{ 
+		fgets(strLine,MAX_LINE,fp);					    //将fp所指向的文件一行内容读到strLine缓冲区
+		//DO SOMETHING ELSE
+	} 
+	fclose(fp);
+	printf("请输入密码：");
+	while(scanf("%s",ps)==*strLine)
+	{
+		break;
+	}
+	
 	Node head;
 	// = (Node *)malloc(LEN);
 	printf("\t\t\t**************************************************************************\n");
@@ -24,6 +44,8 @@ int main()
 	info_list = CreateInfoList();
 	col_list = CreateColList();
 	Sex_list = CreateSexList();
+	// extern int ColLen = readColFromFile(col_list);
+	// extern int SexLen = readSexFromFile(Sex_list);
 
 	while (1)
 	{
@@ -44,6 +66,7 @@ int main()
 	case 4:
 		system("cls"); //清屏
 		printf("\n\n\n");
+		insetNode(info_list,col_list,Sex_list);
 		break;
 	case 5:
 		system("cls"); //清屏
