@@ -16,14 +16,14 @@ int main()
 	Node head;
 	// = (Node *)malloc(LEN);
 	printf("\t\t\t******************************************************************************\n");
-	printf("初始化中……");
+	printf("初始化中……\n");
 	printf("\t\t\t******************************************************************************\n");
 	// 读取学生信息文件
 	FILE *stu_file;
 	if ((stu_file = fopen("Stu_Info(tab).txt", "r")) == NULL)
 	{
 		printf("File cannot be opened/n");
-		exit();
+		exit(0);
 	}
 	else
 		printf("File opened for reading/n");
