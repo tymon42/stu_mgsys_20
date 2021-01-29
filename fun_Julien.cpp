@@ -83,7 +83,7 @@ double coutAve(Data tempData)
     double sum = 0;
     for(int i=0;i<4;i++)
     {
-        sum += tempData.score[i];
+        sum += tempData.score[i];       
     }
     return sum/4;
 }
