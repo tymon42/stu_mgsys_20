@@ -7,13 +7,13 @@ void sortOnName1(Node *p)//从小到大 按姓名 排序
 {
 	Data *mid;
 	
-	while(*p->next)
+	while(p->next)
 	{
-		if(strcmp(p->data->name,p->next->data->name)>0)
+		if(strcmp(p->data.name,p->next.data.name)>0)
 		{
 			*mid=p->data;
-			p->data=p->next->data;
-			p->next->data=*mid;
+			p->data=p->next.data;
+			p->next.data=*mid;
 		}
 		p=p->next;
 	}
@@ -22,7 +22,7 @@ void sortOnName2(Node *p)//从大到小 按姓名 排序
 {
 	Data *mid;
 	
-	while(*p->next)
+	while(p->next)
 	{
 		if(strcmp(p->data->name,p->next->data->name)<0)
 		{
@@ -38,13 +38,13 @@ void sortaverage(Node *p)  //按平均成绩从大到小排序
 {
 	Data *mid;
 	
-	while(*p->next)
+	while(p->next)
 	{
-		if(p->data->average<p->next->data->average)
+		if(p->data.average<p->next.data.average)
 		{
 			*mid=p->data;
 			p->data=p->next->data;
-			p->next->data=*mid;
+			p->next.data=*mid;
 		}
 		p=p->next;
 	}
