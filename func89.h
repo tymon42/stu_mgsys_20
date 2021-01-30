@@ -2,8 +2,9 @@
 #define __FUNC89_H__
 #include <iostream>
 #include <stdio.h>
+#include "list.h"
 using namespace std;
 void UpdataPW();
-void FindBadBoy(Node *p,int num);
+void FindBadBoy(Node*,int);
 
 #endif

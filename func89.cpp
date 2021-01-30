@@ -19,4 +19,5 @@ void FindBadBoy(Node *p,int num)
 		if(p->data.score[i]<60)
 			printf("%S???%d?????%lf\n",p->data.name,i+1,p->data.score[i]);
 	}
+    return;
 }
