@@ -4,5 +4,6 @@
 #include <stdio.h>
 using namespace std;
 void UpdataPW();
+void FindBadBoy(Node *p,int num);
 
 #endif
