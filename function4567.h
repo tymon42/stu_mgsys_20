@@ -16,7 +16,7 @@ void deleNodeByName(Node*);
 void changeNodeByName(Node*);
 void searchByName(Node*);
 void *searchColNodeByColid(Node*,int);
-void printColStu(Node *listHeadNode,ColNode*,int);
+void printColStu(Node*,ColNode*,int);
 //对文件进行操作
 int readFromFile(FILE*);
 int readColFromFile(ColNode*);
