@@ -14,24 +14,22 @@ int main()
 	int i;
 	// 登录
 	FILE *fp; 
-	char strLine[20];								//读取缓冲区
+	char strLine[20]; //读取缓冲区
 	char ps[20];
-	if((fp = fopen("ps.txt","r")) == NULL)		//判断文件是否存在及可读
+	if((fp = fopen("ps.txt","r")) == NULL) //判断文件是否存在及可读
 	{ 
 		printf("Open Falied!"); 
 		return -1; 
 	} 
-	while (!feof(fp))									//循环读取每一行，直到文件尾
+	while (!feof(fp)) //循环读取每一行，直到文件尾
 	{ 
-		fgets(strLine,MAX_LINE,fp);					    //将fp所指向的文件一行内容读到strLine缓冲区
+		fgets(strLine,MAX_LINE,fp); //将fp所指向的文件一行内容读到strLine缓冲区
 		//DO SOMETHING ELSE
 	} 
 	fclose(fp);
 	printf("请输入密码：");
 	while(scanf("%s",ps)==*strLine)
-	{
 		break;
-	}
 	
 	Node head;
 	// = (Node *)malloc(LEN);
