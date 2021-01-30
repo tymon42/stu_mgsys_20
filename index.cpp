@@ -25,7 +25,7 @@ int main()
 	while (!feof(fp)) //循环读取每一行，直到文件尾
 	{ 
 		fgets(strLine,20,fp); //将fp所指向的文件一行内容读到strLine缓冲区
-		printf(strLine);
+		// printf(strLine);
 	} 
 	fclose(fp);
 	printf("请输入密码：");
@@ -59,7 +59,6 @@ int main()
 	{
 		system("cls"); //清屏
 		i = Menu();
-	}
 	switch (i)
 	{
 	case 1:
@@ -91,6 +90,9 @@ int main()
 	case 8:
 		system("cls"); //清屏
 		printf("\n\n\n");
+		printf("\t\t\t更改密码:\n");
+		UpdataPW();
+		printf("\n\n\n");
 		break;
 	case 9:
 		system("cls"); //清屏
@@ -106,6 +108,7 @@ int main()
 		printf("\t\t\t******************************************************************************\n");
 		printf("\t\t\tInput error!\n");
 		printf("\t\t\t******************************************************************************\n");
+	}
 	}
 
 	return 0;
