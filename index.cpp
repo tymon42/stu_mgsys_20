@@ -53,9 +53,9 @@ int main()
 	info_list = CreateInfoList();
 	col_list = CreateColList();
 	Sex_list = CreateSexList();
-	FILE *fp = fopen("Stu_Info.txt(tab)","r");
-	int num = readFromFile(fp);
-	fclose(fp);
+	FILE *numfp= fopen("Stu_Info.txt(tab)","r");
+	int num = readFromFile(numfp);
+	fclose(numfp);
 	// extern int ColLen = readColFromFile(col_list);
 	// extern int SexLen = readSexFromFile(Sex_list);
 
