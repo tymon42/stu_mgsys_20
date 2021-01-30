@@ -21,7 +21,7 @@ void printColStu(Node*,ColNode*,int);
 int readFromFile(FILE*);
 int readColFromFile(ColNode*);
 int readSexFromFile(SexNode*);
-void readStuInfoFromFile(Node*,ColNode*,SexNode*,int,int);
+int readStuInfoFromFile(Node*,ColNode*,SexNode*,int,int);
 void saveInfoToFile(Node*);
 
 #endif

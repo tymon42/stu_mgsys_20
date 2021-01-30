@@ -317,12 +317,13 @@ int readSexFromFile(SexNode *sexHeadNode)
     return sexlen;
 }
 //从文件中读取学生信息
-void readStuInfoFromFile(Node *listHeadNode,ColNode *colHeadNode,SexNode *sexHeadNode,int collen,int sexlen)
+int readStuInfoFromFile(Node *listHeadNode,ColNode *colHeadNode,SexNode *sexHeadNode,int collen,int sexlen)
 {
+    int num=0;
     //此处的输出请在调用前进行
     //cout<<"正在读取文件(3/3)"<<endl;
     FILE *fp;
-    fp = fopen("Stu_Info.txt(tab)","r");
+    fp = fopen("Stu_Info(tab).txt","r");
     if (fp == NULL)
     {
         fprintf(stdout,"w");
@@ -332,22 +333,24 @@ void readStuInfoFromFile(Node *listHeadNode,ColNode *colHeadNode,SexNode *sexHea
     Data tempData;
     while(fp)
     {
-        fscanf(fp,"%d\t%s\t%d\t%d",
+        fscanf(fp,"%d%s%d%d",
         &tempData.id,
         tempData.name,
         &tempData.colid,
         &tempData.sexid);
         for(int i=0;i<4;i++)
         {
-            fscanf(fp,"\t%d",&tempData.score[i]);
+            fscanf(fp,"%d",&tempData.score[i]);
         }
         tempData = Col_changeToChar(colHeadNode,tempData,collen);
         tempData = Sex_changeToChar(sexHeadNode,tempData,sexlen);
         tempData.average = coutAve(tempData);
         insetNodeByHead(listHeadNode,tempData);
         memset(&tempData,0,sizeof(tempData));
+        num++;
     }
     fclose(fp);
+    return num;
 }
 //将信息写入文件
 void saveInfoToFile(Node *listHeadNode)
@@ -362,7 +365,7 @@ void saveInfoToFile(Node *listHeadNode)
     Node *pMove = listHeadNode->next;
     while (pMove)
     {
-        fprintf(fp,"%d\t%s\t%d\t%d\t",
+        fprintf(fp,"%d %s %d %d ",
         pMove->data.id,
         pMove->data.name,
         pMove->data.colid,
@@ -372,7 +375,7 @@ void saveInfoToFile(Node *listHeadNode)
             fprintf(fp,"%d",pMove->data.score[i]);
             if(i!=4)
             {
-                fprintf(fp,"\t");
+                fprintf(fp," ");
             }
             else
             {
