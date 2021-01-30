@@ -1,27 +1,27 @@
 /*
-æ­¤æºæ–‡ä»¶çš„åŠŸèƒ½ä¸ºï¼š
-    1.å¯¹å­¦ç”Ÿä¿¡æ¯çš„å¢åˆ æ”¹æŸ¥(åŒ…å«äººæœºäº¤äº’)
-    2.å¯¹æ–‡ä»¶è¿›è¡Œæ“ä½œ
+´ËÔ´ÎÄ¼şµÄ¹¦ÄÜÎª£º
+    1.¶ÔÑ§ÉúĞÅÏ¢µÄÔöÉ¾¸Ä²é(°üº¬ÈË»ú½»»¥)
+    2.¶ÔÎÄ¼ş½øĞĞ²Ù×÷
 */
 #include "function4567.h"
-//æ‰“å°èŠ‚ç‚¹
-//ï¼ï¼ï¼ï¼æ ¼å¼éœ€è¦æ›´æ”¹ï¼ï¼ï¼ï¼
+//´òÓ¡½Úµã
+//£¡£¡£¡£¡¸ñÊ½ĞèÒª¸ü¸Ä£¡£¡£¡£¡
 void printNode(Node *curNode)
 {
-    cout<<"\tå­¦å·\tå§“å\tå­¦é™¢\tæ€§åˆ«\tæˆç»©1\tæˆç»©2\tæˆç»©3\tæˆç»©4"<<endl;
-    printf("%d %s %s %s ",curNode->data.id,
+    //cout<<"\tÑ§ºÅ\tĞÕÃû\tÑ§Ôº\tĞÔ±ğ\t³É¼¨1\t³É¼¨2\t³É¼¨3\t³É¼¨4"<<endl;
+    printf("\t%d\t%s\t%s\t%s\t",curNode->data.id,
     curNode->data.name,
     curNode->data.col,
     curNode->data.sex);
     for(int i=0;i<4;i++)
     {
-        printf("%lf",curNode->data.score[i]);
-        if(i==4) printf("\n");
-        else printf(" ");
+        printf("%d",curNode->data.score[i]);
+        if(i!=3) printf("\t");
     }
+    printf("\n");
 }
-//å°†å­¦é™¢åå­—è½¬åŒ–ä¸ºä»£ç 
-//å¦‚æœè­¦å‘Šä¸éœ€è¦ç†
+//½«Ñ§ÔºÃû×Ö×ª»¯Îª´úÂë
+//Èç¹û¾¯¸æ²»ĞèÒªÀí
 int Col_changeToInt(ColNode *colist,char col[64],int collen)
 {
     ColNode *pMove = colist->next;
@@ -34,8 +34,8 @@ int Col_changeToInt(ColNode *colist,char col[64],int collen)
         pMove = pMove->next;
     }
 }
-//å°†æ€§åˆ«è½¬åŒ–ä¸ºä»£ç 
-//å¦‚æœè­¦å‘Šä¸éœ€è¦ç†
+//½«ĞÔ±ğ×ª»¯Îª´úÂë
+//Èç¹û¾¯¸æ²»ĞèÒªÀí
 int Sex_changeToInt(SexNode *sexlist,char sex[4],int sexlen)
 {
     SexNode *pMove = sexlist->next;
@@ -48,14 +48,14 @@ int Sex_changeToInt(SexNode *sexlist,char sex[4],int sexlen)
         pMove = pMove->next;
     }
 }
-//å°†å­¦é™¢ä»£ç è½¬åŒ–ä¸ºåå­—
-//å¦‚æœè­¦å‘Šä¸éœ€è¦ç†
+//½«Ñ§Ôº´úÂë×ª»¯ÎªÃû×Ö
+//Èç¹û¾¯¸æ²»ĞèÒªÀí
 Data Col_changeToChar(ColNode *colist,Data tempData,int collen)
 {
     ColNode *pMove = colist->next;
     for(int i=0;i<collen;i++)
     {
-        if(tempData.colid = pMove->col.colnum)
+        if(tempData.colid == pMove->col.colnum)
         {
             strcpy(tempData.col,pMove->col.col);
             return tempData;
@@ -63,14 +63,14 @@ Data Col_changeToChar(ColNode *colist,Data tempData,int collen)
         pMove = pMove->next;
     }
 }
-//å°†æ€§åˆ«ä»£ç è½¬åŒ–ä¸ºåå­—
-//å¦‚æœè­¦å‘Šä¸éœ€è¦ç†
+//½«ĞÔ±ğ´úÂë×ª»¯ÎªÃû×Ö
+//Èç¹û¾¯¸æ²»ĞèÒªÀí
 Data Sex_changeToChar(SexNode *sexlist,Data tempData,int sexlen)
 {
     SexNode *pMove = sexlist->next;
     for(int i=0;i<sexlen;i++)
     {
-        if(tempData.sexid = pMove->sex.sexnum)
+        if(tempData.sexid == pMove->sex.sexnum)
         {
             strcpy(tempData.sex,pMove->sex.sex);
             return tempData;
@@ -78,16 +78,16 @@ Data Sex_changeToChar(SexNode *sexlist,Data tempData,int sexlen)
         pMove = pMove->next;
     }
 }
-//èœå•æ ¼å¼ï¼ï¼ï¼
+//²Ëµ¥¸ñÊ½£¡£¡£¡
 void Menu_DeleNodeByName()
 {
-    cout<<"è¯·ç¡®å®šæ‚¨éœ€è¦è¿›è¡Œçš„æ“ä½œï¼š"<<endl;
-    cout<<"1.åˆ é™¤è¯¥å­¦ç”Ÿæ‰€æœ‰ä¿¡æ¯"<<endl;
-    cout<<"2.å°†è¯¥å­¦ç”Ÿçš„æˆç»©1å½’é›¶"<<endl;
-    cout<<"3.å°†è¯¥å­¦ç”Ÿçš„æˆç»©2å½’é›¶"<<endl;
-    cout<<"4.å°†è¯¥å­¦ç”Ÿçš„æˆç»©3å½’é›¶"<<endl;
-    cout<<"5.å°†è¯¥å­¦ç”Ÿçš„æˆç»©4å½’é›¶"<<endl;
-    cout<<"0.å–æ¶ˆæ“ä½œå¹¶è¿”å›ä¸Šä¸€å±‚"<<endl;
+    cout<<"ÇëÈ·¶¨ÄúĞèÒª½øĞĞµÄ²Ù×÷£º"<<endl;
+    cout<<"1.É¾³ı¸ÃÑ§ÉúËùÓĞĞÅÏ¢"<<endl;
+    cout<<"2.½«¸ÃÑ§ÉúµÄ³É¼¨1¹éÁã"<<endl;
+    cout<<"3.½«¸ÃÑ§ÉúµÄ³É¼¨2¹éÁã"<<endl;
+    cout<<"4.½«¸ÃÑ§ÉúµÄ³É¼¨3¹éÁã"<<endl;
+    cout<<"5.½«¸ÃÑ§ÉúµÄ³É¼¨4¹éÁã"<<endl;
+    cout<<"0.È¡Ïû²Ù×÷²¢·µ»ØÉÏÒ»²ã"<<endl;
 }
 double coutAve(Data tempData)
 {
@@ -98,15 +98,15 @@ double coutAve(Data tempData)
     }
     return sum/4;
 }
-//å¢
+//Ôö
 void insetNode(Node *listHeadNode,ColNode *colHeadNode,SexNode *sexHeadNode,int collen,int sexlen)
 {
     char colinput[64];
     char sexinput[4];
     Data newdata;
-    cout<<"ã€æ·»åŠ å­¦ç”ŸåŠå…¶æˆç»©ã€‘"<<endl;
-    cout<<"è¯·è¾“å…¥å­¦ç”Ÿä¿¡æ¯ï¼š(æ¯ä¸€é¡¹ä¿¡æ¯è¯·ç”¨ç©ºæ ¼åˆ†éš”)"<<endl;
-    cout<<"å­¦å· å§“å å­¦é™¢ æ€§åˆ« æˆç»©1 æˆç»©2 æˆç»©3 æˆç»©4"<<endl;
+    cout<<"¡¾Ìí¼ÓÑ§Éú¼°Æä³É¼¨¡¿"<<endl;
+    cout<<"ÇëÊäÈëÑ§ÉúĞÅÏ¢£º(Ã¿Ò»ÏîĞÅÏ¢ÇëÓÃ¿Õ¸ñ·Ö¸ô)"<<endl;
+    cout<<"Ñ§ºÅ ĞÕÃû Ñ§Ôº ĞÔ±ğ ³É¼¨1 ³É¼¨2 ³É¼¨3 ³É¼¨4"<<endl;
     scanf("%d%s%s%s",&newdata.id,
     newdata.name,colinput,sexinput);
     for(int i=0;i<4;i++)
@@ -116,23 +116,23 @@ void insetNode(Node *listHeadNode,ColNode *colHeadNode,SexNode *sexHeadNode,int 
     newdata.colid = Col_changeToInt(colHeadNode,colinput,collen);
     newdata.sexid = Sex_changeToInt(sexHeadNode,sexinput,sexlen);
     insetNodeByHead(listHeadNode,newdata);
-    cout<<"å¢åŠ å­¦ç”Ÿä¿¡æ¯æˆåŠŸï¼"<<endl;
-    //å­˜å…¥æ–‡ä»¶
+    cout<<"Ôö¼ÓÑ§ÉúĞÅÏ¢³É¹¦£¡"<<endl;
+    //´æÈëÎÄ¼ş
     saveInfoToFile(listHeadNode);
 }
-//åˆ 
-//é€šè¿‡å§“å(char)åˆ é™¤ä¿¡æ¯
+//É¾
+//Í¨¹ıĞÕÃû(char)É¾³ıĞÅÏ¢
 void deleNodeByName(Node *listHeadNode)
 {
     char delename[64];
     Node *deleStu;
-    cout<<"ã€åˆ é™¤å­¦ç”Ÿæˆç»©ã€‘"<<endl;
-    cout<<"è¯·è¾“å…¥éœ€è¦åˆ é™¤çš„å­¦ç”Ÿçš„å§“åï¼š";
+    cout<<"¡¾É¾³ıÑ§Éú³É¼¨¡¿"<<endl;
+    cout<<"ÇëÊäÈëĞèÒªÉ¾³ıµÄÑ§ÉúµÄĞÕÃû£º";
     scanf("%s",delename);
     deleStu = searchNodeByName(listHeadNode,delename);
     if( deleNode == NULL )
     {
-        cout<<"Error:æœªæ‰¾åˆ°ç›¸å…³å­¦ç”Ÿçš„ä¿¡æ¯"<<endl;
+        cout<<"Error:Î´ÕÒµ½Ïà¹ØÑ§ÉúµÄĞÅÏ¢"<<endl;
     }
     else
     {
@@ -151,7 +151,7 @@ void deleNodeByName(Node *listHeadNode)
         case 3:
         case 4:
         case 5:
-            cout<<"è¯·è¾“å…¥è¯¥å­¦ç”Ÿæˆç»©"<<chose-1<<"çš„æ–°æˆç»©"<<endl;
+            cout<<"ÇëÊäÈë¸ÃÑ§Éú³É¼¨"<<chose-1<<"µÄĞÂ³É¼¨"<<endl;
             scanf("%d",deleStu->data.score[chose-2]);
             saveInfoToFile(listHeadNode);
             break;
@@ -159,68 +159,69 @@ void deleNodeByName(Node *listHeadNode)
         case 0:
             break;
         default:
-            cout<<"é€‰æ‹©é”™è¯¯ï¼Œå·²å–æ¶ˆæœ¬æ¬¡æ“ä½œã€‚"<<endl;
+            cout<<"Ñ¡Ôñ´íÎó£¬ÒÑÈ¡Ïû±¾´Î²Ù×÷¡£"<<endl;
             break;
         }
     }
 }
-//æ”¹
+//¸Ä
 void changeNodeByName(Node *listHeadNode)
 {
-    cout<<"ã€ä¿®æ”¹å­¦ç”Ÿæˆç»©ã€‘"<<endl;
+    cout<<"¡¾ĞŞ¸ÄÑ§Éú³É¼¨¡¿"<<endl;
     char searchname[64];
-    cout<<"è¯·è¾“å…¥å­¦ç”Ÿçš„å§“åï¼š";
+    cout<<"ÇëÊäÈëÑ§ÉúµÄĞÕÃû£º";
     scanf("%s",searchname);
     Node *searchNode;
     searchNode = searchNodeByName(listHeadNode,searchname);
     if( searchNode == NULL )
     {
-        cout<<"Error:æœªæ‰¾åˆ°ç›¸å…³å­¦ç”Ÿçš„ä¿¡æ¯"<<endl;
+        cout<<"Error:Î´ÕÒµ½Ïà¹ØÑ§ÉúµÄĞÅÏ¢"<<endl;
     }
     else
     {
         char chose;
         printNode(searchNode);
-        cout<<"ç¡®è®¤ä¿®æ”¹è¯¥å­¦ç”Ÿæˆç»©ï¼Ÿ(Y/N)"<<endl;
+        cout<<"È·ÈÏĞŞ¸Ä¸ÃÑ§Éú³É¼¨£¿(Y/N)"<<endl;
         scanf("%c",&chose);
         switch (chose)
         {
         case 'Y':
         case 'y':
-            cout<<"è¯·è¾“å…¥è¯¥å­¦ç”Ÿçš„å››æ¬¡æˆç»©"<<endl;
+            cout<<"ÇëÊäÈë¸ÃÑ§ÉúµÄËÄ´Î³É¼¨"<<endl;
             for(int i=0;i<4;i++)
             {
                 scanf("%d",searchNode->data.score[i]);
             }
-            cout<<"æˆç»©ä¿®æ”¹æˆåŠŸ!"<<endl;
+            cout<<"³É¼¨ĞŞ¸Ä³É¹¦!"<<endl;
             saveInfoToFile(listHeadNode);
             break;
         
         case 'N':
         case 'n':
-            cout<<"æ“ä½œå–æ¶ˆ"<<endl;
+            cout<<"²Ù×÷È¡Ïû"<<endl;
             break;
 
         default:
-            cout<<"é”®å…¥é”™è¯¯ï¼Œå·²å–æ¶ˆè¯¥æ¬¡æ“ä½œ"<<endl;
+            cout<<"¼üÈë´íÎó£¬ÒÑÈ¡Ïû¸Ã´Î²Ù×÷"<<endl;
             break;
         }
     }
 }
-//æŸ¥
+//²é
 void searchByName(Node *listHeadNode)
 {
-    cout<<"ã€æŸ¥è¯¢å­¦ç”Ÿæˆç»©ã€‘"<<endl;
+    cout<<"¡¾²éÑ¯Ñ§Éú³É¼¨¡¿"<<endl;
     char searchname[64];
-    cout<<"è¯·è¾“å…¥éœ€è¦æŸ¥è¯¢çš„å­¦ç”Ÿå§“åï¼š"<<endl;
+    cout<<"ÇëÊäÈëĞèÒª²éÑ¯µÄÑ§ÉúĞÕÃû£º"<<endl;
     scanf("%s",searchname);
-    cout<<"è¯¥åå­¦ç”Ÿä¿¡æ¯å¦‚ä¸‹ï¼š"<<endl;
+    cout<<"¸ÃÃûÑ§ÉúĞÅÏ¢ÈçÏÂ£º"<<endl;
     printNode(searchNodeByName(listHeadNode,searchname));
 }
-//è¾“å‡ºæŒ‡å®šå­¦é™¢å­¦ç”Ÿ
+//Êä³öÖ¸¶¨Ñ§ÔºÑ§Éú
 void *searchColNodeByColid(Node *listHeadNode,int chose)
 {
     Node *pMove = listHeadNode->next;
+    cout<<"\tÑ§ºÅ\tĞÕÃû\t\tÑ§Ôº\tĞÔ±ğ\t³É¼¨1\t³É¼¨2\t³É¼¨3\t³É¼¨4"<<endl;
     while(1)
     {
         if(pMove == NULL)
@@ -235,21 +236,32 @@ void *searchColNodeByColid(Node *listHeadNode,int chose)
 void printColStu(Node *listHeadNode,ColNode *colHeadNode,int collen)
 {
     ColNode *pMove = colHeadNode->next;
-    int chose;
-    cout<<"ã€è¾“å‡ºç»™å®šå­¦é™¢çš„å­¦ç”Ÿã€‘"<<endl;
-    cout<<"è¯·é€‰æ‹©éœ€è¦æ‰€éœ€å¯»æ‰¾çš„å­¦é™¢ï¼š"<<endl;
-    for(int i=0;i<collen;i++)
+    int chose,flg;
+    cout<<"¡¾Êä³ö¸ø¶¨Ñ§ÔºµÄÑ§Éú¡¿"<<endl;
+    cout<<"ÇëÑ¡ÔñĞèÒªËùĞèÑ°ÕÒµÄÑ§Ôº£º"<<endl;
+    for(int i=collen;i>0;i--)
     {
-        printf("%dã€%s\n",i+1,pMove->col.col);
+        printf("%d¡¢%s\n",i,pMove->col.col);
+        pMove = pMove->next;
     }
     cin>>chose;
-    cout<<"è¯¥å­¦é™¢çš„å­¦ç”ŸåŠæˆç»©å¦‚ä¸‹ï¼š"<<endl;
-    searchColNodeByColid(listHeadNode,chose);
+    if(chose<=collen&&chose>0) flg = 1;
+    switch (flg)
+    {
+    case 1:
+        cout<<"¸ÃÑ§ÔºµÄÑ§Éú¼°³É¼¨ÈçÏÂ£º"<<endl;
+        searchColNodeByColid(listHeadNode,chose);
+        break;
+    
+    default:
+        cout<<"Error:ÊäÈë´íÎó"<<endl;
+        break;
+    }
 }
 
-/*å¯¹æ–‡ä»¶è¿›è¡Œæ“ä½œ*/
+/*¶ÔÎÄ¼ş½øĞĞ²Ù×÷*/
 
-//å¤„ç†æ³¨é‡Šè¡Œ
+//´¦Àí×¢ÊÍĞĞ
 int readFromFile(FILE *fp)
 {
     char readinfo[128],*ps=readinfo;
@@ -266,19 +278,19 @@ int readFromFile(FILE *fp)
     }
     return num;
 }
-//è¯»å–å­¦é™¢ä»£ç 
+//¶ÁÈ¡Ñ§Ôº´úÂë
 int readColFromFile(ColNode *colHeadNode)
 {
-    //æ­¤å¤„çš„è¾“å‡ºè¯·åœ¨è°ƒç”¨å‰è¿›è¡Œ
-    //cout<<"æ­£åœ¨è¯»å–æ–‡ä»¶(1/3)"<<endl;
+    //´Ë´¦µÄÊä³öÇëÔÚµ÷ÓÃÇ°½øĞĞ
+    //cout<<"ÕıÔÚ¶ÁÈ¡ÎÄ¼ş(1/3)"<<endl;
     FILE *fp;
     Col tempData;
-    //C_Code.txtä¸ºå­¦é™¢ä»£ç æ–‡ä»¶
+    //C_Code.txtÎªÑ§Ôº´úÂëÎÄ¼ş
     fp=fopen("C_Code.txt","r");
     if (fp == NULL)
     {
         fprintf(stdout,"file(r)");
-        cout<<"è¯»å–æ–‡ä»¶å¤±è´¥ã€‚(1101)"<<endl;
+        cout<<"¶ÁÈ¡ÎÄ¼şÊ§°Ü¡£(1101)"<<endl;
         exit(1);
     }
     int collen = readFromFile(fp);
@@ -291,19 +303,19 @@ int readColFromFile(ColNode *colHeadNode)
     fclose(fp);
     return collen;
 }
-//è¯»å–æ€§åˆ«ä»£ç 
+//¶ÁÈ¡ĞÔ±ğ´úÂë
 int readSexFromFile(SexNode *sexHeadNode)
 {
-    //æ­¤å¤„çš„è¾“å‡ºè¯·åœ¨è°ƒç”¨å‰è¿›è¡Œ
-    //cout<<"æ­£åœ¨è¯»å–æ–‡ä»¶(2/3)"<<endl;
+    //´Ë´¦µÄÊä³öÇëÔÚµ÷ÓÃÇ°½øĞĞ
+    //cout<<"ÕıÔÚ¶ÁÈ¡ÎÄ¼ş(2/3)"<<endl;
     FILE *fp;
     Sex tempData;
-    //S_Code.txtä¸ºæ€§åˆ«ä»£ç æ–‡ä»¶
+    //S_Code.txtÎªĞÔ±ğ´úÂëÎÄ¼ş
     fp=fopen("S_Code.txt","r");
     if (fp == NULL)
     {
         fprintf(stdout,"file(r)");
-        cout<<"è¯»å–æ–‡ä»¶å¤±è´¥ã€‚(1102)"<<endl;
+        cout<<"¶ÁÈ¡ÎÄ¼şÊ§°Ü¡£(1102)"<<endl;
         exit(1);
     }
     int sexlen = readFromFile(fp);
@@ -316,22 +328,22 @@ int readSexFromFile(SexNode *sexHeadNode)
     fclose(fp);
     return sexlen;
 }
-//ä»æ–‡ä»¶ä¸­è¯»å–å­¦ç”Ÿä¿¡æ¯
+//´ÓÎÄ¼şÖĞ¶ÁÈ¡Ñ§ÉúĞÅÏ¢
 int readStuInfoFromFile(Node *listHeadNode,ColNode *colHeadNode,SexNode *sexHeadNode,int collen,int sexlen)
 {
     int num=0;
-    //æ­¤å¤„çš„è¾“å‡ºè¯·åœ¨è°ƒç”¨å‰è¿›è¡Œ
-    //cout<<"æ­£åœ¨è¯»å–æ–‡ä»¶(3/3)"<<endl;
+    //´Ë´¦µÄÊä³öÇëÔÚµ÷ÓÃÇ°½øĞĞ
+    //cout<<"ÕıÔÚ¶ÁÈ¡ÎÄ¼ş(3/3)"<<endl;
     FILE *fp;
     fp = fopen("Stu_Info(tab).txt","r");
     if (fp == NULL)
     {
         fprintf(stdout,"w");
-        cout<<"è¯»å–æ–‡ä»¶å¤±è´¥ã€‚(1103)"<<endl;
+        cout<<"¶ÁÈ¡ÎÄ¼şÊ§°Ü¡£(1103)"<<endl;
         exit(1);
     }
     Data tempData;
-    while(fp)
+    while(!feof(fp))
     {
         fscanf(fp,"%d%s%d%d",
         &tempData.id,
@@ -352,14 +364,14 @@ int readStuInfoFromFile(Node *listHeadNode,ColNode *colHeadNode,SexNode *sexHead
     fclose(fp);
     return num;
 }
-//å°†ä¿¡æ¯å†™å…¥æ–‡ä»¶
+//½«ĞÅÏ¢Ğ´ÈëÎÄ¼ş
 void saveInfoToFile(Node *listHeadNode)
 {
     FILE *fp = fopen("Stu_Info.txt","w");
     if (fp == NULL)
     {
         fprintf(stdout,"w");
-        cout<<"æ›´æ–°æ•°æ®å¤±è´¥ã€‚(1201)"<<endl;
+        cout<<"¸üĞÂÊı¾İÊ§°Ü¡£(1201)"<<endl;
         exit(1);
     }
     Node *pMove = listHeadNode->next;
@@ -373,15 +385,12 @@ void saveInfoToFile(Node *listHeadNode)
         for(int i=0;i<4;i++)
         {
             fprintf(fp,"%d",pMove->data.score[i]);
-            if(i!=4)
+            if(i!=3)
             {
                 fprintf(fp," ");
             }
-            else
-            {
-                fprintf(fp,"\n");
-            }
         }
+        fprintf(fp,"\n");
         pMove = pMove->next;
     }
     fclose(fp);
