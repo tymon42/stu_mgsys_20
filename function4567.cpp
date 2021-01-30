@@ -15,7 +15,9 @@ void printNode(Node *curNode)
     curNode->data.sex);
     for(int i=0;i<4;i++)
     {
-        printf("%lf ",curNode->data.score[i]);
+        printf("%lf",curNode->data.score[i]);
+        if(i==4) printf("\n");
+        else printf(" ");
     }
 }
 //将学院名字转化为代码
@@ -215,6 +217,35 @@ void searchByName(Node *listHeadNode)
     cout<<"该名学生信息如下："<<endl;
     printNode(searchNodeByName(listHeadNode,searchname));
 }
+//输出指定学院学生
+void *searchColNodeByColid(Node *listHeadNode,int chose)
+{
+    Node *pMove = listHeadNode->next;
+    while(1)
+    {
+        if(pMove == NULL)
+            break;
+        else if( pMove->data.colid == chose )
+        {
+            printNode(pMove);
+        }
+        pMove = pMove->next;
+    }
+}
+void printColStu(Node *listHeadNode,ColNode *colHeadNode,int collen)
+{
+    ColNode *pMove = colHeadNode->next;
+    int chose;
+    cout<<"【输出给定学院的学生】"<<endl;
+    cout<<"请选择需要所需寻找的学院："<<endl;
+    for(int i=0;i<collen;i++)
+    {
+        printf("%d、%s\n",i+1,pMove->col.col);
+    }
+    cin>>chose;
+    cout<<"该学院的学生及成绩如下："<<endl;
+    searchColNodeByColid(listHeadNode,chose);
+}
 
 /*对文件进行操作*/
 
@@ -319,7 +350,7 @@ void readStuInfoFromFile(Node *listHeadNode,ColNode *colHeadNode,SexNode *sexHea
     fclose(fp);
 }
 //将信息写入文件
-void saveInfoToFile(struct Node* listHeadNode)
+void saveInfoToFile(Node *listHeadNode)
 {
     FILE *fp = fopen("Stu_Info.txt","w");
     if (fp == NULL)
@@ -328,7 +359,7 @@ void saveInfoToFile(struct Node* listHeadNode)
         cout<<"更新数据失败。(1201)"<<endl;
         exit(1);
     }
-    struct Node* pMove = listHeadNode->next;
+    Node *pMove = listHeadNode->next;
     while (pMove)
     {
         fprintf(fp,"%d\t%s\t%d\t%d\t",
