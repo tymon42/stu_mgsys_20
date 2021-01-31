@@ -126,6 +126,15 @@ int main()
 			break;
 		case 2:
 			system("cls"); //ÇåÆÁ
+			sortaverage(info_list,num);
+			do
+			{
+				printNode(pMove);
+				pMove = pMove->next;
+			} while (pMove);
+			system("pause");
+			pMove = info_list;
+			break;
 
 			break;
 		case 3:
