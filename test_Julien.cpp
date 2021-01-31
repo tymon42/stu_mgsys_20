@@ -5,6 +5,7 @@
 #include "list.h"
 #include "function4567.h"
 #include "func89.h"
+#include "fun12.h"
 
 #define COURSE_NUM 4	 // 最多的考试科目数
 #define LEN sizeof(Node) // 数据结构的长度
@@ -52,6 +53,7 @@ int main()
 	info_list = CreateInfoList();
 	col_list = CreateColList();
 	Sex_list = CreateSexList();
+	Node *pMove = info_list;
 
     //读取学院代码
 	printf("\t\t\t*****************************************************************\n");
@@ -80,10 +82,46 @@ int main()
 	{
 		system("cls"); //清屏
 		i = Menu();
+		int a = 3;
 		switch (i)
 		{
 		case 1:
 			system("cls"); //清屏
+			printf("\t\t\t1.从小到大按姓名排序。\n");
+			printf("\t\t\t2.从大到小按姓名排序。\n");
+			printf("\t\t\t0.返回主菜单。\n");
+			scanf("%d",&a);
+			switch(a)
+			{
+				case 1:
+					system("cls");
+					sortOnName1(info_list,num);
+					do
+					{
+						printNode(pMove);
+						pMove = pMove->next;
+					} while (pMove);
+					system("pause");
+					pMove = info_list;
+					break;
+				case 2:
+					system("cls");
+					sortOnName2(info_list,num);
+					do
+					{
+						printNode(pMove);
+						pMove = pMove->next;
+					} while (pMove);
+					system("pause");
+					pMove = info_list;
+					break;
+				case 0:
+					pMove = info_list;
+					break;
+				default:
+					pMove = info_list;
+					break;
+			}
 
 			break;
 		case 2:
