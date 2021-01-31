@@ -7,12 +7,12 @@
 void sortOnName1(Node *p,int num)//从小到大 按姓名 排序 
 {
 	Data *mid=&(p->data);
-	Node *px=p->next;
+	Node *px=p;
 	
 	int i,j;
 	for(i=0;i<num;i++)
 	{
-		for(j=0;j<num-i-1;j++)
+		for(j=0;j<num-i;j++)
 		{
 				if(strcmp(p->data.name,p->next->data.name)>0)
 			{
@@ -20,22 +20,21 @@ void sortOnName1(Node *p,int num)//从小到大 按姓名 排序
 				p->data=p->next->data;
 				p->next->data=*mid;
 			}
-			px=px->next;	
+			p=p->next;	
 		}
-		p=p->next;
-		px=p->next;
+		p=px;
 	}
 
 } 
 void sortOnName2(Node *p,int num)//从大到小 按姓名 排序 
 {
 	Data *mid=&(p->data);
-	Node *px=p->next;
+	Node *px=p;
 	
 	int i,j;
 	for(i=0;i<num;i++)
 	{
-		for(j=0;j<num-i-1;j++)
+		for(j=0;j<num-i;j++)
 		{
 				if(strcmp(p->data.name,p->next->data.name)<0)
 			{
@@ -43,10 +42,9 @@ void sortOnName2(Node *p,int num)//从大到小 按姓名 排序
 				p->data=p->next->data;
 				p->next->data=*mid;
 			}
-			px=px->next;	
+			p=p->next;	
 		}
-		p=p->next;
-		px=p->next;
+		p=px;
 	}
 
 }
@@ -54,12 +52,12 @@ void sortOnName2(Node *p,int num)//从大到小 按姓名 排序
 void sortaverage(Node *p,int num)  //按平均成绩从大到小排序 
 {
 	Data *mid=&(p->data);
-	Node *px=p->next;
+	Node *px=p;
 	
 	int i,j;
 	for(i=0;i<num;i++)
 	{
-		for(j=0;j<num-i-1;j++)
+		for(j=0;j<num-i;j++)
 		{
 				if(p->data.average<p->next->data.average)
 			{
@@ -67,10 +65,9 @@ void sortaverage(Node *p,int num)  //按平均成绩从大到小排序
 				p->data=p->next->data;
 				p->next->data=*mid;
 			}
-			px=px->next;	
+			p=p->next;
 		}
-		p=p->next;
-		px=p->next;
+		p=px;
 	}
 }
 
