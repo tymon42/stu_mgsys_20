@@ -3,6 +3,7 @@
 #include "list.h"
 #include <iostream>
 using namespace std;
+void printNode(Node*);
 //前置功能
 int Col_changeToInt(ColNode*,char [],int);
 int Sex_changeToInt(SexNode*,char [],int);
