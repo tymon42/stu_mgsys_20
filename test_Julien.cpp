@@ -145,19 +145,26 @@ int main()
 		case 4:
 			system("cls"); //清屏
 			printf("\n\n\n");
-			
+			insetNode(info_list, col_list, Sex_list, collen, sexlen);
+			system("pause");
 			break;
 		case 5:
 			system("cls"); //清屏
 			printf("\n\n\n");
+			deleNodeByName(info_list);
+			system("pause");
 			break;
 		case 6:
 			system("cls"); //清屏
 			printf("\n\n\n");
+			searchByName(info_list);
+			system("pause");
 			break;
 		case 7:
 			system("cls"); //清屏
 			printf("\n\n\n");
+			changeNodeByName(info_list);
+			system("pause");
 			break;
 		case 8:
 			system("cls"); //清屏
