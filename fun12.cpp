@@ -6,7 +6,7 @@
 //sum为学生总数 
 void sortOnName1(Node *p,int num)//从小到大 按姓名 排序 
 {
-	Data *mid;
+	Data *mid=&(p->data);
 	Node *px=p->next;
 	
 	int i,j;
@@ -29,7 +29,7 @@ void sortOnName1(Node *p,int num)//从小到大 按姓名 排序
 } 
 void sortOnName2(Node *p,int num)//从大到小 按姓名 排序 
 {
-	Data *mid;
+	Data *mid=&(p->data);
 	Node *px=p->next;
 	
 	int i,j;
@@ -53,7 +53,7 @@ void sortOnName2(Node *p,int num)//从大到小 按姓名 排序
 
 void sortaverage(Node *p,int num)  //按平均成绩从大到小排序 
 {
-	Data *mid;
+	Data *mid=&(p->data);
 	Node *px=p->next;
 	
 	int i,j;
