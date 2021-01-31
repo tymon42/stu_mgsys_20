@@ -122,6 +122,8 @@ int main()
 		case 9:
 			system("cls"); //«Â∆¡
 			printf("\n\n\n");
+			FindBadBoy(info_list);
+			system("pause");
 			break;
 		case 0:
 			system("cls"); //«Â∆¡
