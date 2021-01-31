@@ -4,20 +4,24 @@ void UpdataPW()
 {
     char a[20];
     printf("输入新密码：");
-    scanf("%s",a);
+    scanf("%s", a);
     FILE *fp = fopen("pw.txt", "w");
-    fprintf(fp,"%s\n",a);	
+    fprintf(fp, "%s\n", a);
     fclose(fp);
     return;
 }
 
-void FindBadBoy(Node *p,int num)
+void FindBadBoy(Node *p)
 {
-	for (int j = 0; j < num; j++,p++)
-	for (int i = 0; i < 4; i++)
-	{
-		if(p->data.score[i]<60)
-			printf("%S???%d?????%lf\n",p->data.name,i+1,p->data.score[i]);
-	}
+    Node *pMove = p->next;
+    while(pMove!=NULL)
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            if (pMove->data.score[i] < 60)
+                printf("%s的成绩%d不及格，成绩为%d\n", pMove->data.name, i + 1, pMove->data.score[i]);
+        }
+        pMove = pMove->next;
+    }
     return;
 }
