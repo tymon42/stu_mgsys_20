@@ -5,6 +5,6 @@
 #include "list.h"
 using namespace std;
 void UpdataPW();
-void FindBadBoy(Node*,int);
+void FindBadBoy(Node*);
 
 #endif
