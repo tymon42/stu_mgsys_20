@@ -8,8 +8,8 @@
 //！！！！格式需要更改！！！！
 void printNode(Node *curNode)
 {
-    //cout<<"\t学号\t姓名\t学院\t性别\t成绩1\t成绩2\t成绩3\t成绩4"<<endl;
-    printf("\t%d\t%s\t%s\t%s\t",curNode->data.id,
+    //cout<<"\t学号\t姓名\t学院\t性别\t成绩1\t成绩2\t成绩3\t成绩4\t平均分"<<endl;
+    printf("\t%d\t%s\t%s\t\t%s\t",curNode->data.id,
     curNode->data.name,
     curNode->data.col,
     curNode->data.sex);
@@ -18,6 +18,7 @@ void printNode(Node *curNode)
         printf("%d",curNode->data.score[i]);
         if(i!=3) printf("\t");
     }
+    printf("\t%lf",curNode->data.average);
     printf("\n");
 }
 //将学院名字转化为代码
