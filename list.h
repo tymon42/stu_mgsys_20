@@ -14,7 +14,7 @@ typedef struct Data
     int sexid;
     char col[64];
     char sex[4];
-    double score[4];
+    int score[4];
     double average;
 }Data;
 //链表节点结构体
